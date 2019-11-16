@@ -9,6 +9,7 @@
 #### mac
 
 best by installing with [**HomeBrew**](https://brew.sh/)
+
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
@@ -24,4 +25,3 @@ best by installing with [**HomeBrew**](https://brew.sh/)
 ## Use
 
 `yarn start`
-

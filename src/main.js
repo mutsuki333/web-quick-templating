@@ -5,7 +5,7 @@ import router from './router'
 
 
 
-axios.defaults.baseURL = 'http://0.0.0.0:8000/mock/api';
+axios.defaults.baseURL = 'http://54.71.220.94/api';
 axios.defaults.withCredentials = true;
 axios.defaults.debug = true;
 axios.defaults.xsrfCookieName = 'csrftoken'

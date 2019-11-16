@@ -6,8 +6,12 @@
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
-    <h3>Installed CLI Plugins</h3>
+    <h3>資源</h3>
     <ul>
+      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Vue</a></li>
+      <li><a href="https://www.w3schools.com/html/default.asp" target="_blank" rel="noopener">Html tutorial</a></li>
+      <li><a href="https://javascript.info/first-steps" target="_blank" rel="noopener">javascript tutorial</a></li>
+      <li><a href="https://bulma.io/" target="_blank" rel="noopener">Bulma css</a></li>
     </ul>
     <h3>Essential Links</h3>
     <ul>
