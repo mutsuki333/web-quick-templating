@@ -1,0 +1,87 @@
+extends ../templates/base
+
+//- Use append to overwrite vars from base template
+block append variables
+  - title = "Hello World"
+  - subtitle = "Example"
+
+//- place for external js libraries
+block scripts
+  script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js')
+  script(type='text/javascript')
+    include ../js/vue.min.js
+
+//- place for external style libraries
+block styles
+  script(defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js")
+  style(type='text/css')
+    include:clean-css ../styles/bulma.min.css
+
+  //- set style in an separate file or right here
+  //- file
+  style(type='text/css')
+    include:clean-css ../styles/helloworld.css
+  //- here
+  style(type='text/css').
+    #app{
+      padding-top: 2.5rem;
+    }
+
+block content
+  //- main content
+  #app.has-text-centered
+    p.title Hello World!
+    p.subtitle Welcome to web-quick-templating
+    p(v-if="is_shown") {{message}}
+    p(v-else) You can't see me.
+    button.button(@click="show") show
+    hr
+    p 
+      | Use api call like this!  
+      button.button.is-small.is-black(@click="call") click
+      br
+      | call http://218.161.27.75/test_api/ping
+      br
+      span(v-if="response") Response: {{response}}
+
+
+  //- main place for javascript (can use a separate file)
+  //- script(type='text/javascript')
+  //-   include ../js/xxx.js
+  script(type='text/javascript').
+    var app = new Vue({
+      el: '#app',
+      data: {
+        is_shown:false,
+        message: 'Hello World!',
+        response:''
+      },
+      methods:{
+        show(){
+          this.is_shown = true;
+          console.log('show')
+        },
+        call(){
+          axios.get('http://218.161.27.75/test_api/ping')
+          .then(res=>{
+            console.log(res)
+            this.response = res.data
+          })
+        }
+
+      }
+    })
+
+block foot
+  //- variables
+  - var site = 'https://github.com/mutsuki333'
+  - var author = 'Evan'
+
+  //- styles set in styles.helloworld.css
+  footer.footer
+    .content.has-text-centered
+      p
+        strong Document
+        |  by
+        a(href=site) #{author}
+        | . All rights reserved.

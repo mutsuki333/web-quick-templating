@@ -1,0 +1,37 @@
+extends ../templates/base
+
+block append variables
+  - title = "MySite"
+  - subtitle = "Home"
+
+block scripts
+  script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js')
+  script(src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js")
+
+block styles
+  script(defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js")
+  link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css")
+  style(type='text/css')
+    include:clean-css ../styles/main.css
+
+block content
+  #app.has-text-centered
+    p {{message}}
+
+  script(type='text/javascript')
+    include ../js/main.js
+
+block foot
+  - var site = 'https://github.com/mutsuki333'
+  - var author = 'Evan'
+  footer.footer
+    .content.has-text-centered
+      p
+        strong Document
+        |  by
+        a(href=site) #{author}
+        | . All rights reserved.
+
+
+  
+
