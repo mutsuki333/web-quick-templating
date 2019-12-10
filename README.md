@@ -112,7 +112,7 @@ styles/
 ├── entry2.sass
 └── some_dir
 │   └── component1.sass
-├── another_dir
+└── another_dir
     └── component2.sass
 ```
 
