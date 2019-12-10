@@ -6,6 +6,8 @@ const sass = require('gulp-sass')
 const plumber = require('gulp-plumber');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
+const babel = require('gulp-babel');
+const changed = require('gulp-changed');
 
 const browserSync = require('browser-sync').create()
 
@@ -13,6 +15,7 @@ const browserSync = require('browser-sync').create()
 // Compile pug files into HTML
 function html() {
   return src('src/pages/*.pug')
+    .pipe(changed('dist'))
     .pipe(pug())
     .pipe(dest('dist'))
 }
@@ -20,6 +23,7 @@ function html() {
 // Compile sass files into CSS
 function styles() {
   return src('src/styles/*.sass')
+    .pipe(changed('dist/css'))
     .pipe(plumber())
     .pipe(sass({
       includePaths: ['src/styles'],
@@ -40,7 +44,11 @@ function assets() {
 //js minify
 function minify(){
   return src(['src/js/*.js', '!src/js/*.min.js'])
+    .pipe(changed('dist/js'))
     .pipe(plumber())
+    .pipe(babel({
+      "presets": ["@babel/preset-env"]
+    }))
     .pipe(uglify())
     .pipe(rename({extname: '.min.js'}))
     .pipe(dest('dist/js'))

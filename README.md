@@ -12,6 +12,8 @@ Vuejs as javascript framework.
   - [Install](#install)
   - [Use](#use)
   - [Start templating](#start-templating)
+    - [Basic Example](#basic-example)
+    - [Build process](#build-process)
   - [Reference](#reference)
 
 ## Prerequest
@@ -46,6 +48,48 @@ Run the following command inside the project directory.
 and go to http://0.0.0.0:3000/helloworld.html , http://0.0.0.0:3000/index.html or any other pages.
 
 ## Start templating
+
+### Basic Example
+
+`src/pages/index.pug`
+
+```pug
+extends ../templates/base
+
+block scripts
+  script(src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js")
+
+block styles
+  link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css")
+  link(rel="stylesheet" href='./css/main.css')
+
+block content
+  #app.has-text-centered
+    p#msg {{message}}
+
+  script(type='text/javascript' src='./js/main.min.js')
+```
+
+`src/js/main.js`
+
+```javascript
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello World!',
+  }
+})
+```
+
+`src/styles/main.sass`
+
+```sass
+#msg
+  color: blue
+```
+
+
+### Build process
 
 The build process runs the following tasks in series.
 

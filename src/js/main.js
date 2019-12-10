@@ -3,4 +3,9 @@ var app = new Vue({
   data: {
     message: 'Hello World!',
   },
+  methods: {
+    sayhi(){
+      alert('Hi!')
+    },
+  },
 })
