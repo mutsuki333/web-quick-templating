@@ -13,7 +13,6 @@ Vuejs as javascript framework.
   - [Use](#use)
   - [Start templating](#start-templating)
     - [Basic Example](#basic-example)
-    - [Build process](#build-process)
   - [Reference](#reference)
 
 ## Prerequest
@@ -61,13 +60,13 @@ block scripts
 
 block styles
   link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css")
-  link(rel="stylesheet" href='./css/main.css')
+  link(rel="stylesheet" href='../styles/main.sass')
 
 block content
   #app.has-text-centered
     p#msg {{message}}
 
-  script(type='text/javascript' src='./js/main.min.js')
+  script(type='text/javascript' src='./js/main.js')
 ```
 
 `src/js/main.js`
@@ -88,33 +87,7 @@ var app = new Vue({
   color: blue
 ```
 
-
-### Build process
-
-The build process runs the following tasks in series.
-
-1. Looks for all the pug files in src/pages and compile them to dist/ folder, which a simple node server serves.
-2. Compiles all the sass files to dist/css.
-3. Minify all the src/js files to dist/js/xxx.min.js
-4. Copy all the files in the src/assets to dist/assets
-5. Serve the files and open browser
-6. Auto watch changed files and reload browser
-
-Create your own template in the src/template and extend them or include them in the pages.  
-
-**Note** that the process looks only for sass files under src/styles (css files are ignored) and will not search any deeper directories. So you can have multiple sass files as entry point that includes files in deeper directories.  
-e.g.
-
-```shell
-styles/
-
-├── entry1.sass
-├── entry2.sass
-└── some_dir
-│   └── component1.sass
-└── another_dir
-    └── component2.sass
-```
+Create your own template in the src/template and extend them or include them in the pages.
 
 ## Reference
 

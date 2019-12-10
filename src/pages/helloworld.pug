@@ -22,7 +22,7 @@ block styles
       include:clean-css ../styles/bulma.min.css
 
     //- include the compiled file (sass files in src/styles will be compiled into dist/css)
-  link(rel="stylesheet" href="./css/helloworld.css")
+  link(rel="stylesheet" href="../styles/helloworld.sass")
 
     //- or code here
   style(type='text/css').
@@ -61,7 +61,7 @@ block content
       include ../js/xxx.js
 
     //- include the compiled file
-    script(type='text/javascript' src='./js/xxx.min.js')
+    script(type='text/javascript' src='./js/xxx.js')
 
     //- or write it here
   script(type='text/javascript').
