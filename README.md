@@ -13,6 +13,7 @@ Vuejs as javascript framework.
   - [Use](#use)
   - [Start templating](#start-templating)
     - [Basic Example](#basic-example)
+    - [More Examples See helloworld.pug](#more-examples-see-helloworldpug)
   - [Reference](#reference)
 
 ## Prerequest
@@ -46,6 +47,11 @@ Run the following command inside the project directory.
 
 and go to http://0.0.0.0:3000/helloworld.html , http://0.0.0.0:3000/index.html or any other pages.
 
+Press ctl+c in the terminal to leave.  
+
+To build for deploy, run the following command.  
+`yarn build`
+
 ## Start templating
 
 ### Basic Example
@@ -64,9 +70,9 @@ block styles
 
 block content
   #app.has-text-centered
-    p#msg {{message}}
+    h1.title#msg {{message}}
 
-  script(type='text/javascript' src='./js/main.js')
+  script(type='text/javascript' src='../js/main.js')
 ```
 
 `src/js/main.js`
@@ -86,6 +92,8 @@ var app = new Vue({
 #msg
   color: blue
 ```
+
+### More Examples See helloworld.pug
 
 Create your own template in the src/template and extend them or include them in the pages.
 

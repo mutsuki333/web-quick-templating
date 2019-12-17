@@ -16,8 +16,8 @@
     "sass": "^1.23.6"
   },
   "scripts": {
-    "start": "yarn parcel ./src/pages/*.pug --no-autoinstall -p 3000",
-    "build": "parcel build ./src/pages/*.pug -d build/output"
+    "start": "parcel ./src/pages/*.pug --no-autoinstall -p 3000",
+    "build": "parcel build ./src/pages/*.pug --no-source-maps --no-autoinstall"
   },
   "devDependencies": {
     "parcel": "^2.0.0-alpha.3.2"
